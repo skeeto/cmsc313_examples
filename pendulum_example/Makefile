@@ -1,16 +1,17 @@
-CXXFLAGS += -std=c++11 -Wall $(sdl2-config --cflags)
+CXXFLAGS += -DGL_GLEXT_PROTOTYPES -std=c++11 -Wall $(sdl2-config --cflags)
 LDFLAGS  += -lstdc++ -lm -lGL $(shell sdl2-config --libs)
 
-OBJS = vec.o particle.o spring.o pendulum.o main.o
+OBJS = vec.o particle.o spring.o pendulum.o graphics.o program.o
 BIN = pendulum
 
 all: $(BIN)
 
+graphics.o : graphics.cc graphics.hh
 pendulum.o : pendulum.cc spring.hh particle.hh
 spring.o : spring.cc spring.hh vec.hh
 particle.o : particle.cc particle.hh vec.hh
 vec.o : vec.cc vec.hh
-main.o : main.cc vec.hh
+program.o : program.cc pendulum.hh
 
 $(BIN) : $(OBJS)
 	$(CC) $(LDFLAGS) $^ -o $@ $(LDLIBS)
