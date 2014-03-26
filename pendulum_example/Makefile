@@ -1,4 +1,4 @@
-CXXFLAGS += -DGL_GLEXT_PROTOTYPES -std=c++11 -Wall $(sdl2-config --cflags)
+CXXFLAGS += -std=c++11 -Wall $(sdl2-config --cflags)
 LDFLAGS  += -lstdc++ -lm -lGL $(shell sdl2-config --libs)
 FORMAT = clang-format-3.5
 
