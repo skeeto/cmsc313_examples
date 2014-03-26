@@ -15,13 +15,6 @@ Vec<T> Vec<T>::operator+(const Vec<T> &v) const {
 }
 
 template <typename T>
-Vec<T> &Vec<T>::operator=(const Vec<T> &rhs) {
-  x = rhs.x;
-  y = rhs.y;
-  return *this;
-}
-
-template <typename T>
 Vec<T> Vec<T>::scale(T s) const {
   Vec<T> result {x * s, y * s};
   return result;

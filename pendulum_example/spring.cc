@@ -3,9 +3,9 @@
 
 template <typename T>
 Vec<T> Spring<T>::force() const {
-  T actual = p1.dist(p2);
+  T actual = p1->dist(*p2);
   T mf = (length - actual) * k;
-  return (p2 - p1).norm().scale(mf);
+  return (*p2 - *p1).norm().scale(mf);
 }
 
 template class Spring<float>;
