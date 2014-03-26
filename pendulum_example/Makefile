@@ -1,21 +1,24 @@
-OBJS=
+CXXFLAGS += -std=c++11 -Wall $(sdl2-config --cflags)
+LDFLAGS  += -lstdc++ -lm -lGL $(shell sdl2-config --libs)
 
-BINS=\
-	main.bin
+OBJS = vec.o particle.o spring.o pendulum.o main.o
+BIN = pendulum
 
-CFLAGS+=-std=c99 -Wall
-LDFLAGS+=`sdl2-config --static-libs`
+all: $(BIN)
 
-PLATFORM:=$(shell uname)
+pendulum.o : pendulum.cc spring.hh particle.hh
+spring.o : spring.cc spring.hh vec.hh
+particle.o : particle.cc particle.hh vec.hh
+vec.o : vec.cc vec.hh
+main.o : main.cc vec.hh
 
-ifneq ($(PLATFORM), Darwin)
-LDFLAGS+=-lGL
-endif
+$(BIN) : $(OBJS)
+	$(CC) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
-%.bin: %.o $(OBJS)
-	$(CC) -o $@ $< $(OBJS) $(CFLAGS) $(LDFLAGS)
+.PHONY : all clean run
 
-all: $(BINS)
+run : $(BIN)
+	./$^
 
 clean:
-	rm -f $(OBJS) $(BINS)
+	rm -f $(OBJS) $(BIN)
