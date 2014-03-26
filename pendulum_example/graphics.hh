@@ -6,25 +6,23 @@
 #include "pendulum.hh"
 
 class Graphics {
-public:
+ public:
   Graphics();
-  void render(const Pendulum<double> &pendulum);
+  void render(const Pendulum<double>& pendulum);
   void prerender();
   void postrender();
 
-private:
+ private:
   SDL_Window* window;
   SDL_Renderer* renderer;
   int w = 640, h = 640;
-  GLuint filled; // shaders
-  GLuint verts; // vbo
+  GLuint filled;  // shaders
+  GLuint verts;   // vbo
 
-  void spring_zigzag(GLfloat* dest, int n,
-                     const Vec<double> &p1, const Vec<double> &p2);
+  void spring_zigzag(GLfloat* dest, int n, const Vec<double>& p1,
+                     const Vec<double>& p2);
 };
 
-typedef enum {
-  ATTR_VERTEX
-} ProgramAttributes;
+typedef enum { ATTR_VERTEX } ProgramAttributes;
 
 #endif

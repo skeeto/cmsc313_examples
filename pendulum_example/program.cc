@@ -13,19 +13,19 @@ int main() {
   unsigned int remaining_ticks = 0;
   unsigned int min_ticks = 1;
 
-  while(!finished) {
+  while (!finished) {
     // drain event queue
     SDL_Event event;
-    while(SDL_PollEvent(&event)) {
-      switch(event.type) {
-      case SDL_KEYDOWN:
-        // XXX
-        break;
-      case SDL_QUIT:
-        finished = true;
-        break;
-      default:
-        break;
+    while (SDL_PollEvent(&event)) {
+      switch (event.type) {
+        case SDL_KEYDOWN:
+          // XXX
+          break;
+        case SDL_QUIT:
+          finished = true;
+          break;
+        default:
+          break;
       }
     }
 
@@ -37,7 +37,7 @@ int main() {
     unsigned int dticks = now_tick - last_tick;
     remaining_ticks += dticks;
 
-    while(remaining_ticks >= min_ticks) {
+    while (remaining_ticks >= min_ticks) {
       const float dt = min_ticks * 1e-3;
       pendulum.step(dt);
       remaining_ticks -= min_ticks;

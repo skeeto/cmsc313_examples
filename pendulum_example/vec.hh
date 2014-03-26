@@ -6,9 +6,9 @@
 
 template <typename T>
 class Vec {
-public:
-  Vec(T x, T y) : x {x}, y {y} {};
-  explicit Vec(T angle) : x {std::sin(x)}, y {std::cos(y)} {};
+ public:
+  Vec(T x, T y) : x{x}, y{y} {};
+  explicit Vec(T angle) : x{std::sin(x)}, y{std::cos(y)} {};
   T x, y;
 
   Vec<T> operator-(const Vec<T> &v) const;
@@ -20,7 +20,7 @@ public:
   T angle() const;
 };
 
-std::ostream &operator<<(std::ostream &out, const Vec<double>& v);
-std::ostream &operator<<(std::ostream &out, const Vec<float>& v);
+std::ostream &operator<<(std::ostream &out, const Vec<double> &v);
+std::ostream &operator<<(std::ostream &out, const Vec<float> &v);
 
 #endif

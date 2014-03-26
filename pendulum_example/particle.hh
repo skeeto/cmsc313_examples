@@ -7,9 +7,9 @@
 
 template <typename T>
 class Particle {
-public:
+ public:
   Particle(T mass, T x, T y, T dx, T dy)
-    : mass {mass}, position {x, y}, velocity {dx, dy} {};
+      : mass{mass}, position{x, y}, velocity{dx, dy} {};
   const T mass;
   Vec<T> position, velocity;
 
@@ -17,7 +17,7 @@ public:
   void step(const Vec<T> &force, T dt);
 };
 
-std::ostream &operator<<(std::ostream &out, const Particle<double>& p);
-std::ostream &operator<<(std::ostream &out, const Particle<float>& p);
+std::ostream &operator<<(std::ostream &out, const Particle<double> &p);
+std::ostream &operator<<(std::ostream &out, const Particle<float> &p);
 
 #endif

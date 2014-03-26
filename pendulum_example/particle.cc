@@ -16,14 +16,14 @@ void Particle<T>::step(const Vec<T> &force, T dt) {
 template class Particle<float>;
 template class Particle<double>;
 
-std::ostream &operator<<(std::ostream &out, const Particle<double>& p) {
-  out << "Particle["
-      << p.mass << ", " << p.position << ", " << p.velocity << "]";
+std::ostream &operator<<(std::ostream &out, const Particle<double> &p) {
+  out << "Particle[" << p.mass << ", " << p.position << ", " << p.velocity
+      << "]";
   return out;
 }
 
-std::ostream &operator<<(std::ostream &out, const Particle<float>& p) {
-  out << "Particle["
-      << p.mass << ", " << p.position << ", " << p.velocity << "]";
+std::ostream &operator<<(std::ostream &out, const Particle<float> &p) {
+  out << "Particle[" << p.mass << ", " << p.position << ", " << p.velocity
+      << "]";
   return out;
 }

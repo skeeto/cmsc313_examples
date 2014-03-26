@@ -4,19 +4,19 @@
 
 template <typename T>
 Vec<T> Vec<T>::operator-(const Vec<T> &v) const {
-  Vec<T> result {x - v.x, y - v.y};
+  Vec<T> result{x - v.x, y - v.y};
   return result;
 }
 
 template <typename T>
 Vec<T> Vec<T>::operator+(const Vec<T> &v) const {
-  Vec<T> result {x + v.x, y + v.y};
+  Vec<T> result{x + v.x, y + v.y};
   return result;
 }
 
 template <typename T>
 Vec<T> Vec<T>::scale(T s) const {
-  Vec<T> result {x * s, y * s};
+  Vec<T> result{x *s, y *s};
   return result;
 }
 
@@ -44,12 +44,12 @@ T Vec<T>::angle() const {
 template class Vec<float>;
 template class Vec<double>;
 
-std::ostream &operator<<(std::ostream &out, const Vec<double>& v) {
+std::ostream &operator<<(std::ostream &out, const Vec<double> &v) {
   out << "(" << v.x << ", " << v.y << ")";
   return out;
 }
 
-std::ostream &operator<<(std::ostream &out, const Vec<float>& v) {
+std::ostream &operator<<(std::ostream &out, const Vec<float> &v) {
   out << "(" << v.x << ", " << v.y << ")";
   return out;
 }
